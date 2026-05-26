@@ -18,16 +18,15 @@ The project is designed for educational use, cybersecurity training, secure deve
 | Area | Vulnerable Server | Secure Server |
 |---|---|---|
 | SQL queries | Injection-prone query construction | Parameterized queries |
-| Password handling | Insecure password behavior for demonstration | Password hashing and safer verification |
-| XSS protection | Unsafe rendering patterns | Escaping and safer template rendering |
-| CSRF | Missing or weak protection | CSRF token protection |
-| File upload | Weak filename / extension handling | Safer filename and extension validation |
-| Cookies | Weak session/cookie configuration | Secure cookie settings |
+| Password handling | Plaintext or weak password handling for demonstration | Password hashing and safer verification |
+| XSS protection | Unsafe rendering and output handling | Escaping and safer template rendering |
+| CSRF | Missing or weak CSRF protection | CSRF token protection |
+| File upload | Weak filename and extension validation | Safer filename and extension validation |
+| Cookies | Weak session and cookie configuration | Secure cookie settings |
 | HTTP security | Missing or incomplete security headers | Security headers and safer browser policies |
-| Error handling | More information exposure | Custom error handling |
+| Error handling | More internal information exposed | Custom error handling with reduced disclosure |
 | Logging | Sensitive data may appear in logs | Sensitive-data redaction |
-| Cache control | Sensitive pages may be cached | Cache-control on sensitive pages |
-
+| Cache control | Sensitive pages may be cached | Cache-control headers for sensitive pages |
 ---
 
 ## Vulnerable Server
