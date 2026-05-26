@@ -1,6 +1,6 @@
 # Secure vs Vulnerable Flask Server Lab
 
-A practical web-security lab that compares two versions of the same Flask application:
+A practical web-security lab comparing two implementations of the same Flask application:
 
 - **`vulnerable-server/`** — an intentionally vulnerable implementation used to demonstrate common web application weaknesses.
 - **`secure-server/`** — a hardened implementation that applies defensive coding practices and security controls.
@@ -9,7 +9,18 @@ The project is designed for educational use, cybersecurity training, secure deve
 
 > **Educational use only.** Run locally in an isolated environment. Do not expose the vulnerable server to the public internet.
 
-> Each server has its own Docker setup, so the two versions can be started separately from their own folders.
+---
+
+## Project Structure
+
+```text
+.
+├── vulnerable-server/   # Intentionally vulnerable Flask implementation
+├── secure-server/       # Hardened Flask implementation
+└── README.md
+```
+
+Each server has its own Docker setup and its own README with local run instructions.
 
 ---
 
@@ -25,8 +36,9 @@ The project is designed for educational use, cybersecurity training, secure deve
 | Cookies | Weak session and cookie configuration | Secure cookie settings |
 | HTTP security | Missing or incomplete security headers | Security headers and safer browser policies |
 | Error handling | More internal information exposed | Custom error handling with reduced disclosure |
-| Logging | Sensitive data may appear in logs | Sensitive-data redaction |
+| Logging | Sensitive data may appear in logs | Sensitive-data redaction before logging |
 | Cache control | Sensitive pages may be cached | Cache-control headers for sensitive pages |
+
 ---
 
 ## Vulnerable Server
@@ -46,30 +58,13 @@ It demonstrates issues such as:
 - missing security headers;
 - information leakage through logs or error messages.
 
-Run it only in a local lab environment.
-
-```bash
-cd vulnerable-server
-docker compose up --build -d
-```
-
-Open:
-
-```text
-http://localhost:5092
-```
-
-Stop it with:
-
-```bash
-docker compose down
-```
+Detailed setup and run instructions are available inside **`vulnerable-server/README.md`**.
 
 ---
 
 ## Secure Server
 
-The secure server applies defensive improvements to the same application flow. It shows how vulnerable code can be hardened without changing the core idea of the application.
+The secure server applies defensive improvements to the same application flow. It shows how vulnerable code can be hardened without changing the core purpose of the application.
 
 The hardened version includes:
 
@@ -82,35 +77,16 @@ The hardened version includes:
 - HTTPS support for local testing;
 - HTTP security headers;
 - reduced information disclosure in errors;
-- sensitive field redaction in logs;
+- sensitive-data redaction in logs;
 - cache-control for sensitive pages.
 
-Run it locally with:
-
-```bash
-cd secure-server
-docker compose up --build -d
-```
-
-Open:
-
-```text
-https://localhost:5093
-```
-
-Because the secure server uses a local/self-signed certificate, the browser may show a certificate warning during local testing.
-
-Stop it with:
-
-```bash
-docker compose down
-```
+Detailed setup and run instructions are available inside **`secure-server/README.md`**.
 
 ---
 
 ## Blue Team and Log Analysis
 
-The project also includes a defensive analysis angle. Application logs were used to identify and classify suspicious activity against the vulnerable and secured versions of the server.
+The project also includes a defensive analysis angle. Application logs were used to identify and classify suspicious activity against both server versions.
 
 Examples of analyzed activity include:
 
@@ -158,16 +134,6 @@ These tools helped identify missing headers, cookie issues, TLS behavior, cache-
 
 ---
 
-## Recommended Learning Flow
-
-1. Start with the vulnerable server.
-2. Review the exposed weaknesses and test them locally.
-3. Compare the same application flow in the secure server.
-4. Review the security controls added in the hardened version.
-5. Analyze logs to understand how suspicious behavior appears in practice.
-6. Use the project as a reference for secure coding and defensive monitoring.
-
----
 
 ## Disclaimer
 
