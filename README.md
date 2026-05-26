@@ -2,86 +2,133 @@
 
 A practical web-security lab that compares two versions of the same Flask application:
 
-- an intentionally vulnerable server used to demonstrate common web application weaknesses;
-- a hardened server that applies defensive coding practices and security controls.
+- **`vulnerable-server/`** — an intentionally vulnerable implementation used to demonstrate common web application weaknesses.
+- **`secure-server/`** — a hardened implementation that applies defensive coding practices and security controls.
 
-The project is designed for educational use, cybersecurity training, secure development practice, and Blue Team analysis. It shows how insecure implementation choices can affect a web application, and how the same features can be improved through validation, sanitization, secure session handling, logging, and HTTP security controls.
+The project is designed for educational use, cybersecurity training, secure development practice, and Blue Team analysis. It shows how insecure implementation choices affect a web application and how the same features can be improved through validation, sanitization, secure session handling, logging, and HTTP security controls.
 
----
-
-## Overview
-
-This repository contains two related Flask server implementations built around the same application idea. The vulnerable version exposes security issues on purpose, while the secure version demonstrates how those issues can be mitigated.
-
-The project focuses on realistic web security topics such as:
-
-- SQL injection prevention;
-- cross-site scripting mitigation;
-- CSRF protection;
-- password hashing;
-- secure cookie configuration;
-- safe file upload handling;
-- HTTPS configuration for local testing;
-- security headers;
-- sensitive-data filtering in logs;
-- custom error handling;
-- cache-control for sensitive pages;
-- attack detection through application logs.
-
-This makes the repository useful both from a Software Engineering perspective and from a Cybersecurity / Blue Team perspective.
+> **Educational use only.** Run locally in an isolated environment. Do not expose the vulnerable server to the public internet.
 
 ---
 
-## Repository Structure
+## Project Structure
 
 ```text
 .
-├── vulnerable-server/      # Intentionally insecure Flask implementation
-├── secure-server/          # Hardened Flask implementation
+├── vulnerable-server/
+│   ├── Dockerfile
+│   ├── docker-compose.yml
+│   ├── server/
+│   ├── static/
+│   └── README.md
+│
+├── secure-server/
+│   ├── Dockerfile
+│   ├── docker-compose.yml
+│   ├── server/
+│   ├── static/
+│   └── README.md
+│
 └── README.md
 ```
+
+Each server has its own Docker setup, so the two versions can be started separately from their own folders.
+
+---
+
+## What This Project Demonstrates
+
+| Area | Vulnerable Server | Secure Server |
+|---|---|---|
+| SQL queries | Injection-prone query construction | Parameterized queries |
+| Password handling | Insecure password behavior for demonstration | Password hashing and safer verification |
+| XSS protection | Unsafe rendering patterns | Escaping and safer template rendering |
+| CSRF | Missing or weak protection | CSRF token protection |
+| File upload | Weak filename / extension handling | Safer filename and extension validation |
+| Cookies | Weak session/cookie configuration | Secure cookie settings |
+| HTTP security | Missing or incomplete security headers | Security headers and safer browser policies |
+| Error handling | More information exposure | Custom error handling |
+| Logging | Sensitive data may appear in logs | Sensitive-data redaction |
+| Cache control | Sensitive pages may be cached | Cache-control on sensitive pages |
 
 ---
 
 ## Vulnerable Server
 
-The vulnerable server is intentionally built with insecure patterns so they can be studied, tested, and compared against the secure implementation.
+The vulnerable server intentionally contains insecure implementation patterns so they can be studied, tested, and compared with the secure version.
 
 It demonstrates issues such as:
 
-- unsafe SQL query construction;
-- weak or missing input validation;
-- unsafe template rendering patterns;
+- SQL injection;
+- cross-site scripting;
+- weak input validation;
+- unsafe template rendering;
 - insecure password handling;
-- weak session configuration;
-- missing or incomplete security headers;
-- insufficient CSRF protection;
-- unsafe file-upload behavior;
+- unsafe file upload behavior;
+- missing or weak CSRF protection;
+- weak session and cookie configuration;
+- missing security headers;
 - information leakage through logs or error messages.
 
-This version should only be used in a local, isolated environment.
+Run it only in a local lab environment.
+
+```bash
+cd vulnerable-server
+docker compose up --build -d
+```
+
+Open:
+
+```text
+http://localhost:5092
+```
+
+Stop it with:
+
+```bash
+docker compose down
+```
 
 ---
 
 ## Secure Server
 
-The secure server applies defensive improvements to the same application flow.
+The secure server applies defensive improvements to the same application flow. It shows how vulnerable code can be hardened without changing the core idea of the application.
 
 The hardened version includes:
 
 - parameterized SQL queries;
 - password hashing and verification;
 - safer template rendering and output escaping;
-- CSRF token protection for forms;
+- CSRF token protection;
 - stricter file upload validation;
-- secure cookie settings;
+- secure cookie configuration;
 - HTTPS support for local testing;
-- security headers such as `X-Frame-Options`, `X-Content-Type-Options`, `Content-Security-Policy`, and HSTS-related configuration;
+- HTTP security headers;
 - reduced information disclosure in errors;
 - sensitive field redaction in logs;
-- improved cache-control for sensitive pages.
+- cache-control for sensitive pages.
 
-The goal is to show how vulnerable code can be transformed into a more secure implementation without changing the core application purpose.
+Run it locally with:
+
+```bash
+cd secure-server
+docker compose up --build -d
+```
+
+Open:
+
+```text
+https://localhost:5093
+```
+
+Because the secure server uses a local/self-signed certificate, the browser may show a certificate warning during local testing.
+
+Stop it with:
+
+```bash
+docker compose down
+```
 
 ---
 
@@ -97,7 +144,7 @@ Examples of analyzed activity include:
 - login and credential-guessing attempts;
 - session manipulation attempts;
 - malformed requests and protocol fuzzing;
-- general reconnaissance and crawling.
+- reconnaissance and crawling.
 
 This makes the project useful for understanding not only how vulnerabilities are introduced and fixed, but also how attacks appear from the monitoring and detection side.
 
@@ -105,7 +152,7 @@ This makes the project useful for understanding not only how vulnerabilities are
 
 ## Security Testing Tools
 
-The secure version was reviewed with a combination of manual checks and automated tools, including:
+The project was reviewed with a combination of manual checks and automated tools, including:
 
 - Nmap;
 - curl;
@@ -113,7 +160,7 @@ The secure version was reviewed with a combination of manual checks and automate
 - OWASP ZAP;
 - Nikto.
 
-These tools helped identify missing headers, cookie issues, TLS behavior, cache-control problems, and other web security findings that were then reviewed and addressed where applicable.
+These tools helped identify missing headers, cookie issues, TLS behavior, cache-control problems, and other web security findings.
 
 ---
 
@@ -125,8 +172,8 @@ These tools helped identify missing headers, cookie issues, TLS behavior, cache-
 - Jinja2 templates
 - Flask-WTF / CSRF protection
 - Werkzeug password hashing
-- HTTPS with local/self-signed certificate support
-- Docker / Docker Compose
+- Docker
+- Docker Compose
 - Nmap
 - OWASP ZAP
 - Nikto
@@ -135,23 +182,19 @@ These tools helped identify missing headers, cookie issues, TLS behavior, cache-
 
 ---
 
-## Educational Purpose
+## Recommended Learning Flow
 
-This repository is intended for:
-
-- learning secure web development;
-- comparing vulnerable and hardened implementations;
-- understanding common web application vulnerabilities;
-- practicing Blue Team log analysis;
-- documenting remediation techniques;
-- demonstrating security awareness in a portfolio project.
-
-The vulnerable server is not intended for production use and should never be exposed to the public internet.
+1. Start with the vulnerable server.
+2. Review the exposed weaknesses and test them locally.
+3. Compare the same application flow in the secure server.
+4. Review the security controls added in the hardened version.
+5. Analyze logs to understand how suspicious behavior appears in practice.
+6. Use the project as a reference for secure coding and defensive monitoring.
 
 ---
 
 ## Disclaimer
 
-This project is for educational and defensive security purposes only.
+This repository is for educational and defensive security purposes only.
 
-The vulnerable server is intentionally insecure and must be used only in an isolated local lab environment. Do not deploy it publicly and do not use the techniques demonstrated here against systems that you do not own or have explicit permission to test.
+The vulnerable server is intentionally insecure and must only be used in an isolated local lab environment. Do not deploy it publicly and do not use the techniques demonstrated here against systems that you do not own or do not have explicit permission to test.

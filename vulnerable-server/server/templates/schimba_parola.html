@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Schimba Parola</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap_sketchy.css') }}">
+</head>
+<body class="bg-light">
+
+<div class="container mt-5 col-md-5">
+    <h2 class="mb-4 text-center">Schimbare Parola</h2>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="alert alert-warning">
+          {% for msg in messages %}
+            <div>{{ msg | safe }}</div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    <div class="card p-4 shadow">
+        <form action="/procesare_schimbare_parola" method="POST">
+            
+            <div class="mb-3">
+                <label class="form-label">Parola Veche</label>
+                <input type="password" name="parola_veche" class="form-control" autocomplete="on" required>
+            </div>
+
+            <hr>
+
+            <div class="mb-3">
+                <label class="form-label">Parola Noua</label>
+                <input type="password" name="parola_noua" class="form-control" autocomplete="on" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Confirma Parola Noua</label>
+                <input type="password" name="confirm_parola" class="form-control" autocomplete="on" required>
+            </div>
+
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-warning">Salveaza Modificarile</button>
+                <a href="{{ url_for('contul_meu') }}" class="btn btn-outline-secondary">Anuleaza</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <title>Zona privată</title>
+
+  <!-- Bootswatch local (Sketchy) -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap_sketchy.css') }}">
+</head>
+
+<body class="bg-light">
+
+<div class="container mt-5 col-md-6">
+
+  <div class="card p-4 shadow-lg">
+
+    <h1 class="text-center mb-4">Te-ai conectat la Keycloak cu succes!</h1>
+
+    {% if greeting %}
+      <p class="text-center lead">{{ greeting }}</p>
+    {% endif %}
+
+    <p><strong>Utilizator:</strong> {{ username }}</p>
+    <p><strong>Email:</strong> {{ email }}</p>
+    <p><strong>User ID:</strong> {{ user_id }}</p>
+
+    {% if access_token %}
+      <hr>
+      <p><strong>Access token:</strong> {{ access_token }}</p>
+    {% endif %}
+
+    <hr>
+
+    <div class="d-grid gap-3 mt-3">
+      <a href="{{ url_for('home') }}" class="btn btn-primary">Înapoi la Home</a>
+
+      <a
+        href="http://81.180.223.163:5070/realms/swrealm/account?referrer=flask-app&referrer_uri={{ url_for('private_area', _external=True) }}"
+        class="btn btn-secondary"
+      >
+        Cont Keycloak
+      </a>
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>

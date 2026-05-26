@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Contul meu</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap_sketchy.css') }}">
+</head>
+
+<body class="bg-light">
+
+<!-- butoanele vor fi in dreapta sus -->
+<div class="container mt-3">
+    <div class="d-flex justify-content-end">
+
+        <!-- Daca userul este logat vor aparea butoanele Contul meu + Logout -->
+        {% if session.get('username') %}
+            <a href="{{ url_for('contul_meu') }}" class="btn btn-info me-2">Contul meu</a>
+            <a href="{{ url_for('logout') }}" class="btn btn-danger">Logout</a>
+        {% else %}
+            <a href="{{ url_for('login_form') }}" class="btn btn-success">Autentificare</a>
+        {% endif %}
+
+    </div>
+</div>
+
+<!-- Asta vom citi pe pagina -->
+<div class="container mt-5 col-md-6">
+    <h1 class="mb-3">Aloha, {{ username }}!</h1>
+    <p>Aceasta este pagina contului tau.</p>
+
+<hr class="my-4">
+
+
+
+
+
+
+
+
+
+
+<div class="row">
+        <div class="col-md-12">
+            <div class="card border-info mb-3">
+                <div class="card-header">Detalii Utilizator</div>
+                <div class="card-body">
+                    
+                    <h4 class="card-title">Date personale:</h4>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <strong>Nume Complet:</strong> {{ user['nume'] }} {{ user['prenume']  }}
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Nume Afisat:</strong> {{ user['numeAfisat'] }}
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Email:</strong> {{ user['email'] }}
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Website:</strong> 
+                            <a href="{{ user['urlSite'] }}" target="_blank">
+                                {{ user['urlSite']}}
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    <div class="card border-info mb-3">
+      <div class="card-header">Administrare cont</div>
+      <div class="card-body">
+        <h4 class="card-title">Doresti sa iti schimbi parola ?</h4>
+        
+        <a href="{{ url_for('pagina_schimbare_parola') }}" class="btn btn-warning">
+            Schimba Parola
+        </a>
+      </div>
+    </div>
+    
+        <!-- buton intoarcere acasa-->
+        <div class="mt-4 mb-3">
+        <a href="{{ url_for('home') }}" class="btn btn-outline-secondary btn-sm">
+            &larr; Return Home
+        </a>
+
+</div>
+
+</body>
+</html>

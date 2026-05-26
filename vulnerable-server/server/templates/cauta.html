@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <title>Cautare vulnerabila</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap_sketchy.css') }}">
+</head>
+<body class="bg-light">
+<div class="container mt-5 col-md-8">
+  <h1 class="text-center mb-4">Cauta Utilizator</h1>
+
+  <form method="get" action="{{ url_for('cauta') }}" class="card p-4 shadow-sm">
+    <div class="mb-3">
+      <label class="form-label">Introduceti termenul de cautare:</label>
+      
+      <input type="text" name="termen" class="form-control" 
+             placeholder="Nume, Prenume, Username..." 
+             value="{{ termen_cautat if termen_cautat else '' | safe }}">
+    </div>
+    <button type="submit" class="btn btn-primary w-100">Cauta</button>
+  </form>
+
+  {% if termen_cautat %}
+      <div class="mt-3">
+          <h4>Rezultate pentru: {{ termen_cautat | safe }}</h4>
+      </div>
+  {% endif %}
+
+  {% if users %}
+  <div class="mt-5">
+      <h3>Rezultate gasite:</h3>
+      <table class="table table-hover table-striped">
+          <thead>
+              <tr>
+                  <th>Username</th>
+                  <th>Nume Complet</th>
+                  <th>Email</th>
+                  <th>Nume Afisat</th>
+              </tr>
+          </thead>
+          <tbody>
+              {% for user in users %}
+              <tr>
+                  <td>{{ user['username'] | safe }}</td>
+                  <td>{{ user['nume'] | safe }} {{ user['prenume'] | safe }}</td>
+                  <td>{{ user['email'] | safe }}</td>
+                  <td>{{ user['numeAfisat'] | safe }}</td>
+              </tr>
+              {% endfor %}
+          </tbody>
+      </table>
+  </div>
+  {% elif termen_cautat %}
+      <div class="alert alert-warning mt-4">
+        Nu am gasit niciun utilizator pentru: <strong>{{ termen_cautat | safe }}</strong>
+      </div>
+  {% endif %}
+
+    <p class="mt-3 text-center"><a href="{{ url_for('home') }}">Înapoi la home</a></p>
+</div>
+</body>
+</html>

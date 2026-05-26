@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Autentificare</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap_sketchy.css') }}">
+</head>
+
+<body class="bg-light">
+
+<!-- butoanele sunt in dreapta sus si apar doar daca sunt logat -->
+<div class="container mt-3">
+    <div class="d-flex justify-content-end">
+
+        {% if session.get('username') %}
+            <a href="{{ url_for('contul_meu') }}" class="btn btn-info me-2">Contul meu</a>
+            <a href="{{ url_for('logout') }}" class="btn btn-danger">Logout</a>
+        {% endif %}
+
+    </div>
+</div>
+
+<!-- Ceea ce se afla pe mijlocul paginii-->
+<div class="container mt-5 col-md-4">
+
+    <h2 class="mb-4 text-center">Autentificare</h2>
+
+        <!-- buton intoarcere acasa-->
+    <div class="text-center mb-4">
+        <a href="{{ url_for('home') }}" class="btn btn-outline-secondary btn-sm">
+            &larr; Return Home
+        </a>
+    </div>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="alert alert-success"> {% for msg in messages %}
+            <div>{{ msg }}</div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+    {% if error %}
+    <div class="alert alert-danger">{{ error }}</div>
+    {% endif %}
+
+    {% if error %}
+    <div class="alert alert-danger">{{ error }}</div>
+    {% endif %}
+
+    <form method="POST" action="/verificare" class="card p-4 shadow">
+<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <div class="mb-3">
+            <label class="form-label">Utilizator</label>
+            <input type="text" name="username" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Parola</label>
+            <input type="password" name="password" class="form-control">
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100 mt-3">Autentifica-te</button>
+    </form>
+
+</div>
+
+</body>
+</html>

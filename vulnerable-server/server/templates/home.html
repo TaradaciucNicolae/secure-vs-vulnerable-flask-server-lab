@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <title>Portal utilizatori</title>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap_sketchy.css') }}">
+</head>
+
+<body class="bg-light">
+
+  <div class="container mt-3">
+    <div class="d-flex justify-content-end">
+        {% if 'username' in session %}
+          <a href="{{ url_for('contul_meu') }}" class="btn btn-info">Contul meu</a>
+          <a href="{{ url_for('logout') }}" class="btn btn-danger ms-2">Logout</a>
+        {% else %}
+          <a href="{{ url_for('login_form') }}" class="btn btn-success">Autentificare</a>
+          <a href="{{ url_for('sso') }}" class="btn btn-primary ms-2">Autentificare SSO</a>
+        {% endif %}
+    </div>
+</div>
+
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <div class="container mt-3">
+      <div class="alert alert-danger">
+        {% for msg in messages %}
+          <div>{{ msg | safe }}</div>
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
+{% endwith %}
+
+<div class="container mt-5 col-md-6 text-center">
+  <h1 class="mb-4">Acasa / Home</h1>
+
+  <div class="d-grid gap-3 mt-4">
+    <div class="container mt-5 text-center">
+        {% if 'username' not in session %}
+          <p class="lead">Alege:</p>
+            <a href="{{ url_for('inregistrare') }}" class="btn btn-primary btn-lg">Inregistrare utilizator</a>
+        {% endif %}
+        
+        <a href="{{ url_for('cauta') }}" class="btn btn-secondary btn-lg">Cautare utilizator</a>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-5 col-md-6">
+    <h2>Lista utilizatorilor:</h2>
+
+    {% autoescape false %}
+    <ul class="list-group">
+        {% for user in users %}
+            <li class="list-group-item">
+                User: {{ user['username'] }} 
+                </li>
+        {% endfor %}
+    </ul>
+    {% endautoescape %}
+</div>
+
+</body>
+</html>

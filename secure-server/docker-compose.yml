@@ -1,0 +1,11 @@
+services:
+  flask:
+    build: .
+    container_name: SW_Server_Secure
+    env_file:
+      - .env
+    volumes:
+      - .:/SW_Server_Secure
+    ports:
+      - "${FLASK_PORT}:${FLASK_PORT}"
+    restart: always

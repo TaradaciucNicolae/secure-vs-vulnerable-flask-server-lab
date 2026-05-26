@@ -1,0 +1,10 @@
+flask
+requests
+cryptography
+python-json-logger
+sqlmap
+CORS
+flask-cors
+flask_oidc
+oauth2client
+requests

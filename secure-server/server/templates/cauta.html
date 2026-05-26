@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <title>Căutare avansată</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap_sketchy.css') }}">
+</head>
+<body class="bg-light">
+<div class="container mt-5 col-md-8">
+  <h1 class="text-center mb-4">Caută Utilizator</h1>
+
+  <form method="get" action="{{ url_for('cauta') }}" class="card p-4 shadow-sm">
+    <div class="mb-3">
+      <label class="form-label">Introduceți termenul de căutare:</label>
+      <input type="text" name="termen" class="form-control" 
+             placeholder="Nume, Prenume, Username, Email sau Nume afișat..." 
+             value="{{ termen_cautat | e }}">
+    </div>
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <button type="submit" class="btn btn-primary w-100">Caută</button>
+  </form>
+
+  {% if users %}
+  <div class="mt-5">
+      <h3>Rezultate găsite:</h3>
+      <table class="table table-hover table-striped">
+          <thead>
+              <tr>
+                  <th>Username</th>
+                  <th>Nume Complet</th>
+                  <th>Email</th>
+                  <th>Nume Afișat</th>
+              </tr>
+          </thead>
+          <tbody>
+              {% for user in users %}
+              <tr>
+                  <td>{{ user['username'] }}</td>
+                  <td>{{ user['nume'] }} {{ user['prenume'] }}</td>
+                  <td>{{ user['email'] }}</td>
+                  <td>{{ user['numeAfisat'] }}</td>
+              </tr>
+              {% endfor %}
+          </tbody>
+      </table>
+  </div>
+  {% elif termen_cautat %}
+      <div class="alert alert-warning mt-4">Nu am găsit niciun utilizator pentru: <strong>{{ termen_cautat }}</strong></div>
+  {% endif %}
+
+  <p class="mt-3 text-center"><a href="{{ url_for('home') }}">Înapoi la home</a></p>
+</div>
+</body>
+</html>
