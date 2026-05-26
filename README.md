@@ -29,7 +29,8 @@ The project is designed for educational use, cybersecurity training, secure deve
 │   ├── static/
 │   └── README.md
 │
-└── README.md
+├── README.md
+└── Raport Blue Team - Team Riboflavin.pdf
 ```
 
 Each server has its own Docker setup, so the two versions can be started separately from their own folders.
