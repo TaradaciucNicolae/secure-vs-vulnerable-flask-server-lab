@@ -9,31 +9,7 @@ The project is designed for educational use, cybersecurity training, secure deve
 
 > **Educational use only.** Run locally in an isolated environment. Do not expose the vulnerable server to the public internet.
 
----
-
-## Project Structure
-
-```text
-.
-├── vulnerable-server/
-│   ├── Dockerfile
-│   ├── docker-compose.yml
-│   ├── server/
-│   ├── static/
-│   └── README.md
-│
-├── secure-server/
-│   ├── Dockerfile
-│   ├── docker-compose.yml
-│   ├── server/
-│   ├── static/
-│   └── README.md
-│
-├── README.md
-└── Raport Blue Team - Team Riboflavin.pdf
-```
-
-Each server has its own Docker setup, so the two versions can be started separately from their own folders.
+> Each server has its own Docker setup, so the two versions can be started separately from their own folders.
 
 ---
 
