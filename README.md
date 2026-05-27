@@ -140,3 +140,4 @@ These tools helped identify missing headers, cookie issues, TLS behavior, cache-
 This repository is for educational and defensive security purposes only.
 
 The vulnerable server is intentionally insecure and must only be used in an isolated local lab environment. Do not deploy it publicly and do not use the techniques demonstrated here against systems that you do not own or do not have explicit permission to test.
+
